@@ -71,19 +71,25 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             System.out.print("Line " + (i + 1) + ": \n");
-            System.out.print("Point (x, y, z): ");
+            System.out.print("Point: \n");
             try{
-            Rational px = new Rational(scan.nextInt(), scan.nextInt());
-            Rational py = new Rational(scan.nextInt(), scan.nextInt());
-            Rational pz = new Rational(scan.nextInt(), scan.nextInt());
+                System.out.print("x: ");
+                Rational px = new Rational(scan.nextInt(), scan.nextInt());
+                System.out.print("y: ");
+                Rational py = new Rational(scan.nextInt(), scan.nextInt());
+                System.out.print("z: ");
+                Rational pz = new Rational(scan.nextInt(), scan.nextInt());
 
-            System.out.print("Direction vector (x, y, z): ");
-            Rational vx = new Rational(scan.nextInt(), scan.nextInt());
-            Rational vy = new Rational(scan.nextInt(), scan.nextInt());
-            Rational vz = new Rational(scan.nextInt(), scan.nextInt());
+                System.out.print("Direction vector: \n");
+                System.out.print("x: ");
+                Rational vx = new Rational(scan.nextInt(), scan.nextInt());
+                System.out.print("y: ");
+                Rational vy = new Rational(scan.nextInt(), scan.nextInt());
+                System.out.print("z: ");
+                Rational vz = new Rational(scan.nextInt(), scan.nextInt());
 
-            lines.add(new Line3D(new Point3D(px, py, pz),
-                                 new Vector3D(vx, vy, vz)));
+                lines.add(new Line3D(new Point3D(px, py, pz),
+                                     new Vector3D(vx, vy, vz)));
             } catch (IllegalArgumentException e) {
                 System.out.print("Invalid input. " + e.getMessage() + " Try again.");
                 i--;
