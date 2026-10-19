@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+    <Properties>
+        <Property name="logPath">logs</Property>
+        <Property name="consolePattern">%d{HH:mm:ss.SSS} %highlight{%-5level} [%t] %style{%logger{36}}{cyan} - %msg%n</Property>
+        <Property name="filePattern">%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %logger{36} - %msg%n</Property>
+    </Properties>
+
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${consolePattern}"/>
+        </Console>
+
+        <RollingFile name="File"
+                     fileName="${logPath}/app.log"
+                     filePattern="${logPath}/app-%d{yyyy-MM-dd}-%i.log.zip">
+            <PatternLayout pattern="${filePattern}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="3"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+
+</Configuration>
